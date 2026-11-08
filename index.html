@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#100824">
-<meta name="description" content="Warm Diwali wishes filled with love and light from Adarsh Verma.">
-<title>Happy Diwali ✨ | Adarsh Verma</title>
+<meta name="description" content="A special Diwali surprise for Jhanavi Junior, with love from Adarsh Verma.">
+<title>For Jhanavi Junior 💖 | Happy Diwali</title>
 <style>
 :root{--gold:#ffd978;--cream:#fff0d1;--pink:#ffc1d8;--muted:#d8c4e8}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--cream);font-family:Georgia,"Noto Serif Devanagari",serif;background:#100824;overflow-x:hidden}
@@ -58,8 +58,8 @@ footer{padding:24px;text-align:center;background:#0c0617;color:#ad9abf;font:11px
  <div class="pop-card">
   <div class="pop-icon">💝</div>
   <div class="kicker">A tiny question before the magic</div>
-  <h2 id="popTitle">Would you like a special Diwali surprise?</h2>
-  <p>There is a little message and a shower of happiness waiting just for you. Shall we open it?</p>
+  <h2 id="popTitle">Jhanavi Junior, would you like a special Diwali surprise? 💖</h2>
+  <p>I made a little something just for you. Say YES and let the wishes, hearts and magic begin. ✨</p>
   <div class="pop-actions">
    <button class="btn" id="popYes">YES! ✨</button>
    <button class="btn ghost" id="popNo">No</button>
@@ -119,7 +119,7 @@ footer{padding:24px;text-align:center;background:#0c0617;color:#ad9abf;font:11px
    <button class="btn" id="surpriseBtn">Open a special message for me ✨</button>
    <button class="btn ghost" id="shareBtn">Share on WhatsApp</button>
   </div>
-  <div id="surprise">💌 A special note for you:<br>Wherever life takes you, may you stay happy. May your hard work be recognised, your dreams find direction, and may you be surrounded by people who understand, respect and encourage you. Wishing you a beautiful Diwali! 🪔</div>
+  <div id="surprise">💌 <strong>Dear Jhanavi Junior,</strong><br>This Diwali, I wanted to send you more than just a greeting — a little reminder that you are special. May your days be filled with laughter, your dreams find their way, and your heart always have reasons to smile. I hope this festival brings you beautiful surprises, warm memories and countless moments of happiness. Keep shining just the way you are. ✨<br><br><strong>With warm wishes and a little extra affection,</strong><br>Adarsh Verma ❤️🪔</div>
  </div>
 </section>
 
@@ -145,15 +145,15 @@ const popReply=document.getElementById('popReply');
 const popYes=document.getElementById('popYes');
 const popNo=document.getElementById('popNo');
 const wishPop=document.getElementById('wishPop');
-const popWishes=['✨ You deserve all the happiness in the world!','🪔 May your home glow with love and laughter!','💛 A little light, a lot of love, and endless good vibes!','🌟 Keep shining — your brightest days are ahead!','🎉 Sending you a pocketful of festive joy!'];
+const popWishes=['💖 Jhanavi, you deserve all the happiness in the world!','🪔 May your days glow with love and laughter!','✨ Keep shining, Jhanavi Junior — the world needs your sparkle!','🌷 Sending you a little warmth and a lot of festive joy!','💫 May beautiful surprises find their way to you!'];
 let wishTimer;
 popNo.addEventListener('click',()=>{
- popReply.textContent='Aww, the surprise is waiting just for you! 😊 Please say YES to unlock your special message. 💛';
+ popReply.textContent='Hehe, I made this little surprise especially for you, Jhanavi! 😊 Come on, say YES and open your message. 💖';
  popNo.textContent='I will say YES 😊';
  popNo.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:350});
 });
 popYes.addEventListener('click',()=>{
- popReply.textContent='Yay! Your surprise is opening… 💖';
+ popReply.textContent='Yay, Jhanavi! This little Diwali surprise is all yours. Sending you lots of smiles and sparkle! 💖✨';
  popYes.textContent='YES! 💖';
  for(let i=0;i<24;i++){const e=document.createElement('span');e.className='sparkle';e.textContent=['✨','💛','🌟','💖','🎉'][i%5];e.style.left=(5+Math.random()*90)+'vw';e.style.top=(35+Math.random()*45)+'vh';e.style.setProperty('--dx',(Math.random()*180-90)+'px');document.body.appendChild(e);setTimeout(()=>e.remove(),1600)}
  document.getElementById('surprise').style.display='block';
