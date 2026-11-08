@@ -170,7 +170,7 @@ wishTimer=setInterval(()=>{if(!document.hidden&&!welcomePop.isConnected)showWish
 
 const surprise=document.getElementById('surprise');
 document.getElementById('surpriseBtn').addEventListener('click',()=>{surprise.style.display=surprise.style.display==='block'?'none':'block';if(surprise.style.display==='block')surprise.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'})});
-function share(){const msg='🪔 शुभ दीपावली! आपके जीवन में सुख, शांति, समृद्धि और ढेर सारी खुशियाँ आएँ। Wishes from the heart — Adarsh Verma ❤️\n';const url='https://wa.me/?text='+encodeURIComponent(msg+location.href);window.open(url,'_blank','noopener')}
+function share(){const msg='🪔 Happy Diwali, Jhanavi Junior! I made this little surprise especially for you. May your life glow with happiness, laughter and beautiful memories. With warm wishes, Adarsh Verma ❤️\n';const url='https://wa.me/?text='+encodeURIComponent(msg+location.href);window.open(url,'_blank','noopener')}
 document.getElementById('shareBtn').addEventListener('click',share);document.getElementById('shareEnd').addEventListener('click',share);
 
 // Lightweight, canvas-based celebratory fireworks. No sound and no external assets.
