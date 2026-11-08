@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#100824">
+<meta name="theme-color" content="#100824">\n<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">\n<meta http-equiv="Pragma" content="no-cache">\n<meta http-equiv="Expires" content="0">
 <meta name="description" content="A festive Diwali greeting for Jhanavi Junior from Adarsh Verma.">
 <title>Happy Diwali, Jhanavi Junior!</title>
 <style>
@@ -61,8 +61,8 @@ footer{padding:24px;text-align:center;background:#0c0617;color:#ad9abf;font:11px
   <h2 id="popTitle">Jhanavi Junior, would you like to see your Diwali greeting?</h2>
   <p>I've put together a festive greeting for you. Tap YES to see your wishes. ✨</p>
   <div class="pop-actions">
-   <button class="btn" id="popYes">YES! ✨</button>
-   <button class="btn ghost" id="popNo">No</button>
+   <button type="button" class="btn" id="popYes" onclick="handlePopupYes()">YES! ✨</button>
+   <button type="button" class="btn ghost" id="popNo" onclick="handlePopupNo()">NO</button>
   </div>
   <p id="popReply" aria-live="polite"></p>
  </div>
@@ -147,20 +147,27 @@ const popNo=document.getElementById('popNo');
 const wishPop=document.getElementById('wishPop');
 const popWishes=['🌼 Jhanavi, wishing you happiness and success!','🪔 May your days glow with love and laughter!','✨ Keep doing great things, Jhanavi Junior!','🌷 Sending you cheerful festive wishes!','💫 May beautiful surprises find their way to you!'];
 let wishTimer;
-popNo.addEventListener('click',()=>{
- popReply.textContent='No worries! Your Diwali greeting is ready whenever you'd like to see it. 😊';
- popNo.textContent='I will say YES 😊';
- popNo.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:350});
-});
-popYes.addEventListener('click',()=>{
- popReply.textContent='Great, Jhanavi! Here's your Diwali greeting. Wishing you a bright and joyful festival! ✨';
- popYes.textContent='YES! 💖';
- for(let i=0;i<24;i++){const e=document.createElement('span');e.className='sparkle';e.textContent=['✨','💛','🌟','💖','🎉'][i%5];e.style.left=(5+Math.random()*90)+'vw';e.style.top=(35+Math.random()*45)+'vh';e.style.setProperty('--dx',(Math.random()*180-90)+'px');document.body.appendChild(e);setTimeout(()=>e.remove(),1600)}
- document.getElementById('surprise').style.display='block';
- document.getElementById('surprise').scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'});
- setTimeout(()=>{welcomePop.classList.add('hidden');setTimeout(()=>welcomePop.remove(),400)},850);
+window.handlePopupNo=function(){
+ const reply=document.getElementById('popReply');
+ if(reply) reply.textContent='No problem! Your Diwali greeting will be here whenever you are ready. 😊 You can tap YES anytime.';
+ const noButton=document.getElementById('popNo');
+ if(noButton) noButton.textContent='Maybe later';
+};
+window.handlePopupYes=function(){
+ const reply=document.getElementById('popReply');
+ if(reply) reply.textContent='Happy Diwali, Jhanavi! Your greeting is ready. ✨';
+ const note=document.getElementById('surprise');
+ if(note) note.style.display='block';
+ const popup=document.getElementById('welcomePop');
+ if(popup){popup.classList.add('hidden');setTimeout(()=>popup.remove(),400);}
+ if(note) note.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'});
+ for(let i=0;i<18;i++){
+  const e=document.createElement('span');e.className='sparkle';e.textContent=['✨','🌼','🌟','🎉'][i%4];
+  e.style.left=(5+Math.random()*90)+'vw';e.style.top=(35+Math.random()*45)+'vh';
+  e.style.setProperty('--dx',(Math.random()*180-90)+'px');document.body.appendChild(e);setTimeout(()=>e.remove(),1600);
+ }
  showWish();
-});
+};
 function showWish(){
  const msg=popWishes[Math.floor(Math.random()*popWishes.length)];
  wishPop.textContent=msg;wishPop.classList.remove('show');void wishPop.offsetWidth;wishPop.classList.add('show');
