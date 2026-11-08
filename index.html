@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#100824">
-<meta name="description" content="Adarsh Verma की ओर से प्यार और रोशनी से भरी दीपावली की शुभकामनाएँ।">
-<title>शुभ दीपावली ✨ | Adarsh Verma</title>
+<meta name="description" content="Warm Diwali wishes filled with love and light from Adarsh Verma.">
+<title>Happy Diwali ✨ | Adarsh Verma</title>
 <style>
 :root{--gold:#ffd978;--cream:#fff0d1;--pink:#ffc1d8;--muted:#d8c4e8}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--cream);font-family:Georgia,"Noto Serif Devanagari",serif;background:#100824;overflow-x:hidden}
@@ -32,21 +32,54 @@ section.content{padding:86px 20px;background:linear-gradient(180deg,#170d2b,#211
 footer{padding:24px;text-align:center;background:#0c0617;color:#ad9abf;font:11px Arial,sans-serif;letter-spacing:2px}
 @media(max-width:650px){.grid{grid-template-columns:1fr}.wishes{grid-template-columns:1fr}.hero{padding:45px 18px}.content{padding:65px 18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Playful welcome question and floating animated wish popups */
+.welcome-pop{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:20px;background:#080313dd;backdrop-filter:blur(9px);transition:opacity .35s}
+.welcome-pop.hidden{opacity:0;pointer-events:none}
+.pop-card{width:min(100%,470px);padding:30px 24px;border:1px solid #ffd97899;border-radius:26px;text-align:center;background:linear-gradient(145deg,#45205f,#170d2b);box-shadow:0 0 65px #ffcb6544;animation:popIn .55s cubic-bezier(.2,1.4,.4,1)}
+@keyframes popIn{from{opacity:0;transform:scale(.65) translateY(30px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.pop-card .pop-icon{font-size:48px;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-9px) rotate(7deg)}}
+.pop-card h2{font-size:clamp(26px,7vw,36px);margin:12px 0}
+.pop-card p{line-height:1.8;color:#f8e8d1}
+.pop-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.pop-actions button{min-width:125px}
+#popReply{min-height:48px;color:#ffe6a2;font-weight:bold;line-height:1.7;margin:12px 0 0}
+.wish-pop{position:fixed;z-index:12;left:50%;bottom:22px;transform:translateX(-50%) translateY(25px);width:min(90vw,420px);padding:14px 18px;border:1px solid #ffd97888;border-radius:18px;background:#25113bed;color:#fff0cf;text-align:center;box-shadow:0 12px 45px #0008;opacity:0;pointer-events:none}
+.wish-pop.show{animation:toastPop 3.5s ease forwards}
+@keyframes toastPop{0%{opacity:0;transform:translate(-50%,25px) scale(.85)}12%,78%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-12px) scale(.96)}}
+.sparkle{position:fixed;z-index:11;pointer-events:none;font-size:20px;animation:sparkleFly 1.5s ease-out forwards}
+@keyframes sparkleFly{to{transform:translate(var(--dx),-120px) rotate(180deg) scale(.2);opacity:0}}
 </style>
 </head>
 <body>
 <div class="stars" aria-hidden="true"></div>
+<div class="welcome-pop" id="welcomePop" role="dialog" aria-modal="true" aria-labelledby="popTitle">
+ <div class="pop-card">
+  <div class="pop-icon">💝</div>
+  <div class="kicker">A tiny question before the magic</div>
+  <h2 id="popTitle">Would you like a special Diwali surprise?</h2>
+  <p>There is a little message and a shower of happiness waiting just for you. Shall we open it?</p>
+  <div class="pop-actions">
+   <button class="btn" id="popYes">YES! ✨</button>
+   <button class="btn ghost" id="popNo">No</button>
+  </div>
+  <p id="popReply" aria-live="polite"></p>
+ </div>
+</div>
+<div class="wish-pop" id="wishPop" aria-live="polite"></div>
+
 <main>
 <header class="hero">
  <div class="hero-inner">
   <div class="eyebrow">✨ Festival of Lights • A little love, a lot of light ✨</div>
   <div class="om">ॐ</div>
-  <h1>शुभ दीपावली</h1>
-  <p class="hero-sub">एक छोटा-सा पन्ना… ढेर सारी दुआएँ… और आपके नाम रोशनी से भरा एक खूबसूरत पैगाम।</p>
+  <h1>Happy Diwali</h1>
+  <p class="hero-sub">A little page, a whole lot of love, and a beautiful message of light made just for you.</p>
   <div class="lamp-stage"><div class="ring"></div><div class="lamp"><div class="flame"></div><div class="bowl"></div></div></div>
-  <p class="hero-sub">आपके जीवन का हर कोना खुशियों से जगमगाए,<br>हर सुबह नई उम्मीद और हर शाम सुकून लेकर आए।</p>
-  <div class="signature">दिल से शुभकामनाएँ</div><div class="sender">Adarsh Verma</div>
-  <a class="btn" href="#wishes">आगे बढ़ें और शुभकामनाएँ पढ़ें ↓</a>
+  <p class="hero-sub">May every corner of your life glow with happiness,<br>may every morning bring hope and every evening bring peace.</p>
+  <div class="signature">Wishes from the heart</div><div class="sender">Adarsh Verma</div>
+  <a class="btn" href="#wishes">Scroll down for your wishes ↓</a>
   <span class="scrollhint">SCROLL DOWN FOR MORE LOVE ✨</span>
  </div>
 </header>
@@ -54,39 +87,39 @@ footer{padding:24px;text-align:center;background:#0c0617;color:#ad9abf;font:11px
 <section class="content" id="wishes">
  <div class="section-inner">
   <div class="kicker">A festival full of blessings</div>
-  <h2>इस दीपावली आपके नाम… 🪔</h2>
-  <p class="intro">दीपावली सिर्फ दीप जलाने का त्योहार नहीं, बल्कि दिलों में उम्मीद, रिश्तों में मिठास और जीवन में नई शुरुआत का उजाला भरने का अवसर है। मेरी दिल से यही कामना है कि यह पर्व आपके लिए अनगिनत खुशियाँ लेकर आए।</p>
+  <h2>A little Diwali love, just for you… 🪔</h2>
+  <p class="intro">Diwali is more than lighting lamps. It is a celebration of hope, sweeter relationships, fresh beginnings and the light we share. May this festival bring countless beautiful moments into your life.</p>
   <div class="grid">
-   <article class="card"><div class="emoji">🪔</div><h3>खुशियों का उजाला</h3><p>आपके जीवन से हर अँधेरा दूर हो। चेहरे पर मुस्कान बनी रहे और दिल में हमेशा खुशियों का दीप जलता रहे।</p></article>
-   <article class="card"><div class="emoji">🌸</div><h3>सुख और शांति</h3><p>माँ लक्ष्मी की कृपा आपके घर-परिवार पर बनी रहे। घर में प्रेम, मन में शांति और जीवन में संतुलन बना रहे।</p></article>
-   <article class="card"><div class="emoji">💫</div><h3>सपनों की उड़ान</h3><p>आप जो भी सपना देखें, उसे पूरा करने का साहस और मेहनत करने की शक्ति मिले। हर कोशिश कामयाबी की ओर बढ़े।</p></article>
-   <article class="card"><div class="emoji">❤️</div><h3>रिश्तों की मिठास</h3><p>अपनों का साथ कभी कम न हो। रूठे हुए रिश्ते फिर से मुस्कुराएँ और हर दिल में अपनापन और सम्मान बना रहे।</p></article>
-   <article class="card"><div class="emoji">🌿</div><h3>सेहत और सुकून</h3><p>आप और आपका परिवार स्वस्थ रहें। चिंताएँ कम हों, हौसले बुलंद रहें और हर दिन सुकून से भरा हो।</p></article>
-   <article class="card"><div class="emoji">🏆</div><h3>सफलता के नए रास्ते</h3><p>आपकी मेहनत रंग लाए, नए अवसर मिलें और आपकी पहचान आपके अच्छे कर्मों और नेक इरादों से बने।</p></article>
+   <article class="card"><div class="emoji">🪔</div><h3>A Brighter, Happier Life</h3><p>May every shadow fade away, may your smile never disappear, and may your heart always shine with happiness.</p></article>
+   <article class="card"><div class="emoji">🌸</div><h3>Peace & Prosperity</h3><p>May your home be blessed with abundance, love and harmony. May peace live in your heart and warmth fill your home.</p></article>
+   <article class="card"><div class="emoji">💫</div><h3>Dreams Take Flight</h3><p>May you find the courage to dream big and the strength to make those dreams real. May every effort take you closer to success.</p></article>
+   <article class="card"><div class="emoji">❤️</div><h3>Love & Togetherness</h3><p>May you always be surrounded by people who care. May bonds grow stronger and every heart be filled with kindness and respect.</p></article>
+   <article class="card"><div class="emoji">🌿</div><h3>Health & Happiness</h3><p>Wishing you and your family good health, fewer worries, endless courage and peaceful days.</p></article>
+   <article class="card"><div class="emoji">🏆</div><h3>New Paths to Success</h3><p>May your hard work shine, new opportunities find you, and your kindness and good intentions make you unforgettable.</p></article>
   </div>
-  <div class="quote">“एक दीप उम्मीद का जलाएँ, एक दीप प्यार का सजाएँ,<br>मिलकर बाँटें खुशियाँ इतनी कि हर चेहरा मुस्कुराए।”</div>
+  <div class="quote">“Light a lamp of hope, decorate your world with love,<br>share so much happiness that every face begins to glow.”</div>
  </div>
 </section>
 
 <section class="content">
  <div class="section-inner">
   <div class="kicker">Little notes, heartfelt wishes</div>
-  <h2>कुछ और प्यारी-सी दुआएँ 💛</h2>
-  <p class="intro">इनमें से हर एक दुआ आपके और आपके अपनों के लिए है।</p>
+  <h2>A Few More Wishes for You 💛</h2>
+  <p class="intro">Every little wish here is for you and the people you love.</p>
   <div class="wishes">
-   <div class="wish">✨ आपकी हर सुबह उम्मीद से शुरू हो और हर रात सुकून के साथ बीते।</div>
-   <div class="wish">🌼 घर में हँसी गूँजे, आँगन महके और अपनों का साथ हमेशा बना रहे।</div>
-   <div class="wish">🪙 मेहनत को उसका पूरा फल मिले और खुशहाली आपके कदम चूमे।</div>
-   <div class="wish">🕊️ मन से डर और चिंता दूर हों, जीवन में विश्वास और हिम्मत बढ़े।</div>
-   <div class="wish">🎁 आपको ऐसे अनमोल पल मिलें जिन्हें याद करके हमेशा मुस्कुरा सकें।</div>
-   <div class="wish">🌟 आपकी अच्छाई किसी और के जीवन में भी रोशनी बनकर पहुँचे।</div>
+   <div class="wish">✨ May every morning begin with hope and every night end in peace.</div>
+   <div class="wish">🌼 May laughter echo through your home and loved ones always stay close.</div>
+   <div class="wish">🪙 May your hard work be rewarded and prosperity walk beside you.</div>
+   <div class="wish">🕊️ May fear and worry fade, while confidence and courage grow within you.</div>
+   <div class="wish">🎁 May life gift you precious moments that make you smile for years.</div>
+   <div class="wish">🌟 May your kindness become a light in someone else’s life too.</div>
   </div>
-  <div class="quote">इस त्योहार पर बस इतनी-सी दुआ है—आपके हिस्से की हर खुशी आपको मिले, आपकी हर परेशानी आसान हो और आपके अपनों के चेहरे पर मुस्कान कभी कम न हो।</div>
+  <div class="quote">This festival, my only wish is that every happiness meant for you finds its way to you, every difficulty becomes easier, and your loved ones never run out of reasons to smile.</div>
   <div class="share-area">
-   <button class="btn" id="surpriseBtn">मेरे लिए एक खास संदेश खोलें ✨</button>
-   <button class="btn ghost" id="shareBtn">WhatsApp पर शेयर करें</button>
+   <button class="btn" id="surpriseBtn">Open a special message for me ✨</button>
+   <button class="btn ghost" id="shareBtn">Share on WhatsApp</button>
   </div>
-  <div id="surprise">💌 आपके लिए एक खास पैगाम:<br>आप जहाँ भी रहें, खुश रहें। आपकी मेहनत को पहचान मिले, आपके सपनों को दिशा मिले और आपके जीवन में ऐसे लोग रहें जो आपको समझें, सम्मान दें और हर कदम पर आपका हौसला बढ़ाएँ। दीपावली की ढेर सारी शुभकामनाएँ! 🪔</div>
+  <div id="surprise">💌 A special note for you:<br>Wherever life takes you, may you stay happy. May your hard work be recognised, your dreams find direction, and may you be surrounded by people who understand, respect and encourage you. Wishing you a beautiful Diwali! 🪔</div>
  </div>
 </section>
 
@@ -94,22 +127,50 @@ footer{padding:24px;text-align:center;background:#0c0617;color:#ad9abf;font:11px
  <canvas id="fireworks" aria-hidden="true"></canvas>
  <div class="final-inner">
   <div class="kicker">And now… let the sky sparkle!</div>
-  <h2>आसमान आपके नाम! 🎆</h2>
-  <p>इतनी सारी दुआओं के बाद अब बारी है खुशियों की आतिशबाज़ी की!<br>नीचे बटन दबाएँ और रोशनी का यह जश्न देखें।</p>
-  <button class="btn" id="fireBtn">🎆 पटाखे जलाएँ!</button>
-  <p style="font-size:14px;color:#d6c2e6;margin-top:24px">आपकी ज़िंदगी भी इन रंगों की तरह खूबसूरत और चमकदार रहे।</p>
+  <h2>The Sky Is Yours! 🎆</h2>
+  <p>After all these wishes, it is time for a sky full of celebration!<br>Tap the button below and let the lights sparkle.</p>
+  <button class="btn" id="fireBtn">🎆 Launch Fireworks!</button>
+  <p style="font-size:14px;color:#d6c2e6;margin-top:24px">May your life be as colourful, bright and beautiful as these fireworks.</p>
   <div class="signature">With love & warm wishes</div>
   <div class="sender">Adarsh Verma ❤️</div>
-  <button class="btn ghost" id="shareEnd">यह शुभकामना आगे भेजें ↗</button>
+  <button class="btn ghost" id="shareEnd">Share these wishes ↗</button>
  </div>
 </section>
 <footer>HAPPY DIWALI • SPREAD LIGHT, LOVE & KINDNESS 🪔</footer>
 </main>
 <script>
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const welcomePop=document.getElementById('welcomePop');
+const popReply=document.getElementById('popReply');
+const popYes=document.getElementById('popYes');
+const popNo=document.getElementById('popNo');
+const wishPop=document.getElementById('wishPop');
+const popWishes=['✨ You deserve all the happiness in the world!','🪔 May your home glow with love and laughter!','💛 A little light, a lot of love, and endless good vibes!','🌟 Keep shining — your brightest days are ahead!','🎉 Sending you a pocketful of festive joy!'];
+let wishTimer;
+popNo.addEventListener('click',()=>{
+ popReply.textContent='Aww, the surprise is waiting just for you! 😊 Please say YES to unlock your special message. 💛';
+ popNo.textContent='I will say YES 😊';
+ popNo.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:350});
+});
+popYes.addEventListener('click',()=>{
+ popReply.textContent='Yay! Your surprise is opening… 💖';
+ popYes.textContent='YES! 💖';
+ for(let i=0;i<24;i++){const e=document.createElement('span');e.className='sparkle';e.textContent=['✨','💛','🌟','💖','🎉'][i%5];e.style.left=(5+Math.random()*90)+'vw';e.style.top=(35+Math.random()*45)+'vh';e.style.setProperty('--dx',(Math.random()*180-90)+'px');document.body.appendChild(e);setTimeout(()=>e.remove(),1600)}
+ document.getElementById('surprise').style.display='block';
+ document.getElementById('surprise').scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'});
+ setTimeout(()=>{welcomePop.classList.add('hidden');setTimeout(()=>welcomePop.remove(),400)},850);
+ showWish();
+});
+function showWish(){
+ const msg=popWishes[Math.floor(Math.random()*popWishes.length)];
+ wishPop.textContent=msg;wishPop.classList.remove('show');void wishPop.offsetWidth;wishPop.classList.add('show');
+}
+setTimeout(()=>{if(!welcomePop.classList.contains('hidden'))showWish()},1800);
+wishTimer=setInterval(()=>{if(!document.hidden&&!welcomePop.isConnected)showWish()},9500);
+
 const surprise=document.getElementById('surprise');
 document.getElementById('surpriseBtn').addEventListener('click',()=>{surprise.style.display=surprise.style.display==='block'?'none':'block';if(surprise.style.display==='block')surprise.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'})});
-function share(){const msg='🪔 शुभ दीपावली! आपके जीवन में सुख, शांति, समृद्धि और ढेर सारी खुशियाँ आएँ। दिल से शुभकामनाएँ — Adarsh Verma ❤️\n';const url='https://wa.me/?text='+encodeURIComponent(msg+location.href);window.open(url,'_blank','noopener')}
+function share(){const msg='🪔 शुभ दीपावली! आपके जीवन में सुख, शांति, समृद्धि और ढेर सारी खुशियाँ आएँ। Wishes from the heart — Adarsh Verma ❤️\n';const url='https://wa.me/?text='+encodeURIComponent(msg+location.href);window.open(url,'_blank','noopener')}
 document.getElementById('shareBtn').addEventListener('click',share);document.getElementById('shareEnd').addEventListener('click',share);
 
 // Lightweight, canvas-based celebratory fireworks. No sound and no external assets.
